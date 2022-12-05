@@ -1,0 +1,64 @@
+
+<html>
+  <head>
+    <title>ultimo</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <table border="1">
+    <script>
+      var nota, notaf, media, acMedia, passou, i, j;
+
+      media = 0;
+      acMedia = 0;
+      nota = new Array(40);
+
+      for(i=1; i<= 40; i++)
+      {
+      nota[i] = parseFloat(window.prompt("Insira sua nota: "));
+
+      media = nota[i] + media;
+
+      if(nota[i] >= 6)
+      {
+        acMedia = acMedia + 1;
+      }
+      }
+      passou = acMedia / 40 * 100;
+      media = media / 40;
+
+
+
+      document.write("<tr><td colspan='3'>Média global da turma: ");
+      document.write("<td>" + media);
+
+      document.write("<tr><td colspan='3'>Quantidade de alunos acima da média:");
+      document.write("<td colspan='3'>" + acMedia);
+
+      document.write("<tr><td colspan='3'>Percentual de aprovados (média >= 6,0):");
+      document.write("<td>" + passou + "%");
+
+      document.write("<tr><td>Nº do Aluno");
+      document.write("<td>Média Final");
+      document.write("<td>Indicativo visual");
+      document.write("<td>Pontos para atingir a aprovação");
+
+      for(j=1; j<=40; j++)
+      {
+        document.write("<tr><td>" + j)
+        document.write("<td>" + nota[j])
+        if(nota[j] >= 6)
+        {
+          document.write("<td><img src='POSITIVO.png'>")
+          document.write("<td>---");
+        }
+        else
+        {
+          document.write("<td><img src='NEGATIVO.png'>")
+          notaf = 6 - nota[j];
+          document.write("<td>" + notaf);
+        }
+      }
+    </script>
+  </body>
+</html>
